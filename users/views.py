@@ -75,6 +75,7 @@ class UserLoginView(views.APIView):
                 "data": {"token": str(token),
                          "email": user.email,
                          "username": user.username,
+                         "token_type": "Token"
                          },
                 "errors": "null",
             },
