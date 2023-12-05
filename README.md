@@ -6,6 +6,10 @@ Clone the repository:
 
 ```
 git clone https://github.com/Numostanley/ChatAPI.git
+```
+
+Enter the root directory.
+```
 cd ChatAPI
 ```
 
