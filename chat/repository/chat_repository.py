@@ -1,3 +1,5 @@
+from rest_framework import serializers
+
 from chat.entity.models import ChatRoom, Message
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -20,7 +22,10 @@ class ChatRepository:
         try:
             chatroom = ChatRoom.objects.get(id=chatroom_id)
             user = User.objects.get(id=user_id)
-            chatroom.members.remove(user)
+            if chatroom.members.filter(username=user.username).exists():
+                chatroom.members.remove(user)
+            else:
+                pass
         except ObjectDoesNotExist:
             pass
 
@@ -28,7 +33,17 @@ class ChatRepository:
     def enter_chatroom(chatroom_id, user_id):
         try:
             chatroom = ChatRoom.objects.get(id=chatroom_id)
+            if chatroom.members.count() >= 20:
+                raise serializers.ValidationError({
+                    "success": False,
+                    "message": "Maximum room members reached"
+                })
             user = User.objects.get(id=user_id)
+            if chatroom.members.filter(username=user.username).exists():
+                raise serializers.ValidationError({
+                    "success": False,
+                    "message": "User already in this chat room"
+                })
             chatroom.members.add(user)
         except ObjectDoesNotExist:
             pass
