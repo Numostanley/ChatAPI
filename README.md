@@ -1,5 +1,3 @@
-# ChatAPI
-
 # Installation
 
 Clone the repository:
