@@ -1,6 +1,7 @@
 # ChatAPI
 
 Installation
+
 Clone the repository:
 
 ```
@@ -14,6 +15,7 @@ python -m venv venv
 ```
 
 Activate the virtual environment.
+
 On Windows:
 ```
 venv\Scripts\activate
@@ -30,6 +32,7 @@ pip install -r requirements.txt
 ```
 
 Database Setup
+
 Apply migrations:
 ```
 python manage.py migrate
