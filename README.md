@@ -50,3 +50,8 @@ Running the Project
 ```
 python manage.py runserver
 ```
+
+# Note:
+You can find the API documentation at the link below.
+
+https://www.postman.com/orange-capsule-84916/workspace/chatapi/overview
